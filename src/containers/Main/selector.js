@@ -1,13 +1,13 @@
 import { createSelector } from 'reselect';
 
-const getLogin = (state) => state.mainReducer.login;
+const getLogin = (state) => state.mainReducer;
 
 export const selectToken = createSelector(
     getLogin,
-    (data) => data.token
+    (data) => data.get('token')
 );
 
 export const selectState = createSelector(
     getLogin,
-    (data) => data.state
+    (data) => data.get('state')
 );

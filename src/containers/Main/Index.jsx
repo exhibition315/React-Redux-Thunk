@@ -18,6 +18,7 @@ class Login extends React.Component {
         const { token, state } = this.props;
         const p1 = `Token: ${token}`;
         const p2 = `State: ${state}`;
+
         return (
             <div>
                 <button onClick={this.onClick}>Click</button>

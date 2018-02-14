@@ -1,18 +1,17 @@
+import { fromJS } from 'immutable';
 import * as types from './actionTypes';
 
-const initialState = {
-    login: {
-        token: 'NULL',
-        state: 'FAIL'
-    }
-};
+const initialState = fromJS({
+    token: 'NULL',
+    state: 'FAIL'
+});
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.LOGIN_SUCCESS:
-            return ({ ...state, login: { token: action.token, state: 'SUCCESS' } });
+            return state.merge({ token: action.token, state: 'SUCCESS' });
         case types.LOGIN_FAL:
-            return ({ ...state, login: { token: '', state: 'FAIL' } });
+            return state.merge({ token: 'NULL', state: 'FAIL' });
         default:
             return state;
     }
